@@ -1,0 +1,14 @@
+# Source - https://www.youtube.com/watch?v=ECxlFPy7s-k
+
+Hadoop cluster is master and slave nodes. Combination of one set of master+slaves is called rack. Rack has switch ,if that fails then whole 
+rack will be down. 
+
+Client - This is requester who wants to communicate to HDFS filesystem which is categorized into name and data node
+Master node is name node (it manages names of directories and files) 
+Slave node is data node (it manages data of file)
+
+                    create a file (/mydir/myfile)
+     Client ------------------------------------------------->  Name node(maintains image of hdfs namespace in memory,fsimage) 
+            <-------------------------------------------------    |            |          |         |          |
+                               success to create file                                     
+
