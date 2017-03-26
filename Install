@@ -71,14 +71,67 @@ aliasshls="fs -ls"
 
 export PATH=$PATH:$HADOOP_HOME/bin:$PATH:$JAVA_HOME/bin:$HADOOP_HOME/sbin
 
+# make temp directory
+sudo  mkdir -p /app/hadoop/tmp
+sudo chown -R hduser:hadoop /app/hadoop/tmp
+sudo chmod -R 777 /app/hadoop/tmp
 
+vim /usr/local/hadoop/etc/hadoop/yarn-site.xml
+<property> 
+   <name>yarn.nodemanager.aux-services</name>
+   <value>mapreduce.shuffle</value>
+</property>
+<property>
+   <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+   <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+</property>
 
+vim /usr/local/hadoop/etc/hadoop/core-site.xml
+<property>
+<name>hadoop.tmp.dir</name>
+<value>/app/hadoop/tmp</value>
+<description>Base for other temporary directory</description>
+</property>
 
+<property>
+<name>fs.default.name</name>
+<value>hdfs://localhost:9000</value>
+<description>the name of the default file system 
+A URI whose scheme and authority determine the filesystem implementation
+the URIs's scheme determines the config property. The URI's authority determines host , port etc</description>
+</property>
 
+#copy mapred-site.xml.template to mapred-site.xml
+cp /usr/local/hadoop/etc/hadoop/mapred-site.xml.template /usr/local/hadoop/etc/hadoop/mapred-site.xml
+vim mapred-site.xml
+<property>
+  <name>mapreduce.framework.name</name>
+  <value>yarn</value>
+</property>
 
+#make few directory for HDFS 
+sudo mkdir -p /usr/local/hadoop/yarn_data/hdfs/namenode
+sudo mkdir -p /usr/local/hadoop/yarn_data/hdfs/datanode
 
+sudo chmod 777 /usr/local/hadoop/yarn_data/hdfs/namenode
+sudo chmod 777 /usr/local/hadoop/yarn_data/hdfs/datanode
 
+sudo chown -R hduser:hadoop /usr/local/hadoop/yarn_data/hdfs/namenode
+sudo chown -R hduser:hadoop /usr/local/hadoop/yarn_data/hdfs/datanode
 
+vim /usr/local/hadoop/etc/hadoop/hdfs-site.xml
+<property>
+  <name>dfs.replication</name>
+  <value>1</value>
+</property>
+<property>
+  <name>dfs.namenode.name.dir</name>
+  <value>file:/usr/local/hadoop/yarn_data/hdfs/namenode</value>
+</property>
+<property>
+  <name>dfs.datanode.data.dir</name>
+  <value>file:/usr/local/hadoop/yarn_data/hdfs/datanode</value>
+</property>
 
 
 
