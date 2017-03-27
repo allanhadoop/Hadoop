@@ -11,3 +11,32 @@ Master node is name node (it manages names of directories and files)
 Slave node is data node (it manages data of file)
 
 # # see attached pdf file for more detail 
+
+# HDFS interfaces to perform file operation on hdfs
+1. command line
+2. Apache Hue
+3. Java API
+4. Rest API webhdfs
+5. C Api libhdfs
+
+
+Hadoop single node cluster includes - name node, datanode and hadoop client .while working on large multi-node cluster , access to 
+name node or data node may be restricted due to security reasons , so there are few edge nodes which can be used for hdfs operations
+edge nodes are like data nodes which can be used for day to day operations.
+
+# hdfs commands - https://www.youtube.com/watch?v=PI1Xm1Zoj78
+hdfs version
+start-all.sh
+
+
+
+
+
+
+
+
+
+
+
+
+
