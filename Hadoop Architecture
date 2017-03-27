@@ -28,6 +28,32 @@ edge nodes are like data nodes which can be used for day to day operations.
 hdfs version
 start-all.sh
 
+## HDFS Compatible file systems are as follows -- 
+1. AWS s3
+2. Azure block storage
+3. Azure data lake storage
+4. swift storage
+5. Linux local file system 
+
+# How to access Hadoop supported file system 
+Access it using URI - scheme://authority/path
+To access local file system - file://
+To access HDFS - hdfs://namenode (e.g. hdfs://<default file syste>/path
+To get the default file system , use below command
+>> hdfs getconf -confkey fs.defaultFS
+This may output as hdfs://localhost:9000
+
+## How to bring large data into HDFS 
+1. cp
+2. copyFromLocal
+3. Put
+4. appendTofFile
+
+cp - example to copy local file into hdfs
+hadoop fs -cp file:///home/file1.txt file:///home/file2.txt /user/hduser/test    # copy file1/file2 into test folder
+
+### Mapreduce framework and programming technique
+submit Map Reduce jar to Apache Yarn which will execute MapReduce framework
 
 
 
