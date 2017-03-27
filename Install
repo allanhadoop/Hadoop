@@ -133,7 +133,20 @@ vim /usr/local/hadoop/etc/hadoop/hdfs-site.xml
   <value>file:/usr/local/hadoop/yarn_data/hdfs/datanode</value>
 </property>
 
+hadoop namenode -format
+start-dfs.sh
+start-dfs.sh 
+jps     #you should see all services startes, datanode, namenode,resource manager, nodemanager
 
+hadoop fs -ls    #this maynot work since there is no home directory so create it
+hadoop fs -mkdir -p /user/hduser (depreciated) 
+hdfs dfs -mkdir -p /user/hduser
+
+hdfs fs -ls 
+
+namenode - http://localhost:50070
+resource manager - http://localhost:8088
+mapreduce jobhistory server - http://localhost:19888
 
 
 
