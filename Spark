@@ -1,0 +1,20 @@
+# source - https://www.youtube.com/watch?v=9mELEARcxJo&list=PL9ooVrP1hQOGyFc60sExNX1qBWJyV5IMb
+
+Hadoop - batch processing
+Spark - real time processing
+
+Installion steps- 
+1. Install JDK 
+2. Download apache spark2.0 and extract
+tar -xvf spark2.0.gzip
+3. App to path (SPARK_HOME , PATH)
+export SPARK_HOME=/home/Desktop/spark
+export PATH=$PATH:$SPARK_HOME/bin
+4. Verify spark working
+spark-shell  #This will open scala shell. Scala is officially part of spark form 2.0 version
+
+
+
+
+
+
