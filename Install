@@ -44,7 +44,7 @@ sudo chmod 777 hadoop_2.7
 sudo vim /usr/local/hadoop/etc/hadoop/hadoop-env.sh
 export HADOOP_OPTS=-Djava.net.preferIPv4Stack=true
 export HADOOP_HOME_wARN_SUPPRESS="TRUE"
-export JAVA_HOME=/usr/local/java/jdk1.8.0_91
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 
 --add below lines into ~/.bashrc
 sudo vim ~/.bashrc
@@ -61,7 +61,7 @@ export HADOOP_COMMON_LIB_NATIVE_DIR=${HADOOP_PREFIX}/lib/native
 export HADOOP_OPTS="-Djava.library.path=$HADOOP_PREFIX/lib"
 
 #set JAVA_HOME (we will also configure JAVA_HOME directly for hadoop later on)
-export JAVA_HOME=/usr/local/java/jdk1.8.0_91
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 # some convenient aliases and functions for running hadoop-related commands
 
 unaliasfs&> /dev/null
