@@ -135,7 +135,7 @@ vim /usr/local/hadoop/etc/hadoop/hdfs-site.xml
 
 hadoop namenode -format
 start-dfs.sh
-start-dfs.sh 
+start-yarn.sh 
 jps     #you should see all services startes, datanode, namenode,resource manager, nodemanager
 
 hadoop fs -ls    #this maynot work since there is no home directory so create it
@@ -148,9 +148,17 @@ namenode - http://localhost:50070
 resource manager - http://localhost:8088
 mapreduce jobhistory server - http://localhost:19888
 
+## hdfs commands
+hdfs dfs -mkdir -p /user/hduser/test  #This will create test directory under /user/hduser at namenode
 
+# run a filesystem command in a file system supported in  a haddop
+hdfs fs [command name] [command option]
+# all command are at  http://hadoop.apache.org/docs/r1.0.4/file_system_shell.html 
+or we can use below 
+hadoop fs [command name] [command option]
 
-
+### Hadoop compatbile file system ####
+example aws s3 can be used instead of hdfs file system
 
 
 
